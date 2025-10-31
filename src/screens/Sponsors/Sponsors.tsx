@@ -1,8 +1,14 @@
-export const Sponsors = (): JSX.Element => {
+interface SponsorsProps {
+  isDarkMode: boolean;
+}
+
+export const Sponsors = ({ isDarkMode }: SponsorsProps): JSX.Element => {
   return (
     <div className="flex-1 p-6 overflow-y-auto">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="[font-family:'Inter',Helvetica] font-bold text-black text-[32px]">
+        <h1 className={`[font-family:'Inter',Helvetica] font-bold text-[32px] ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Sponsors
         </h1>
       </div>

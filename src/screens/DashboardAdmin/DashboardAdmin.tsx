@@ -7,6 +7,10 @@ import {
 } from "../../components/Dashboard";
 import { Button } from "../../components/ui/button";
 
+interface DashboardAdminProps {
+  isDarkMode: boolean;
+}
+
 const statCards = [
   {
     title: "New Members",
@@ -155,7 +159,7 @@ const topSponsors = [
   },
 ];
 
-export const DashboardAdmin = (): JSX.Element => {
+export const DashboardAdmin = ({ isDarkMode }: DashboardAdminProps): JSX.Element => {
   // Handler for when cashflow filter changes
   // TODO: When backend is ready, fetch data based on selected filter
   const handleCashflowFilterChange = (filter: string) => {
@@ -173,7 +177,9 @@ export const DashboardAdmin = (): JSX.Element => {
   return (
     <div className="flex-1 p-6 overflow-y-auto">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="[font-family:'Inter',Helvetica] font-bold text-black text-[32px]">
+        <h1 className={`[font-family:'Inter',Helvetica] font-bold text-[32px] ${
+          isDarkMode ? 'text-white' : 'text-black'
+        }`}>
           Dashboard
         </h1>
 

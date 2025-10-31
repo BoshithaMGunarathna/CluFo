@@ -48,32 +48,33 @@ export const App = (): JSX.Element => {
   const renderPage = () => {
     switch (currentPage) {
       case "Dashboard":
-        return <DashboardAdmin />;
+        return <DashboardAdmin isDarkMode={isDarkMode} />;
       case "Members":
-        return <Members />;
+        return <Members isDarkMode={isDarkMode} />;
       case "Finance":
-        return <Finance />;
+        return <Finance isDarkMode={isDarkMode} />;
       case "Fan Shop":
-        return <FanShop />;
+        return <FanShop isDarkMode={isDarkMode} />;
       case "Events":
-        return <Events />;
+        return <Events isDarkMode={isDarkMode} />;
       case "Volunteers":
-        return <Volunteers />;
+        return <Volunteers isDarkMode={isDarkMode} />;
       case "Sponsors":
-        return <Sponsors />;
+        return <Sponsors isDarkMode={isDarkMode} />;
       case "Inventory":
-        return <Inventory />;
+        return <Inventory isDarkMode={isDarkMode} />;
       case "Accounting":
-        return <Accounting />;
+        return <Accounting isDarkMode={isDarkMode} />;
       case "Social Media":
-        return <SocialMedia />;
+        return <SocialMedia isDarkMode={isDarkMode} />;
       case "Document Management":
-        return <DocumentManagement />;
+        return <DocumentManagement isDarkMode={isDarkMode} />;
       case "Settings":
-        return <Settings />;
+        return <Settings isDarkMode={isDarkMode} />;
       default:
-        return <DashboardAdmin />;
+        return <DashboardAdmin isDarkMode={isDarkMode} />;
     }
+    
   };
 
   return (
