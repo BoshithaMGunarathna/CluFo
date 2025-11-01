@@ -120,48 +120,66 @@ export const CashflowChart = ({
           </div>
         </div>
 
-        <div className="relative h-[280px]">
-          <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-right pr-2">
-            <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
-              £100k
-            </span>
-            <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
-              £75k
-            </span>
-            <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
-              £50k
-            </span>
-            <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
-              £25k
-            </span>
-            <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
-              £0k
-            </span>
+        <div className="relative">
+          {/* Chart area with fixed height */}
+          <div className="relative h-[240px]">
+            {/* Y-axis labels */}
+            <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-right pr-2 z-10">
+              <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
+                £100k
+              </span>
+              <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
+                £75k
+              </span>
+              <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
+                £50k
+              </span>
+              <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
+                £25k
+              </span>
+              <span className="[font-family:'Manrope',Helvetica] font-light text-black text-xs">
+                £0k
+              </span>
+            </div>
+
+            {/* Horizontal dashed grid lines */}
+            <div className="absolute left-12 right-0 top-0 bottom-0 flex flex-col justify-between pointer-events-none">
+              <div className="w-full border-t border-dashed border-[#eaeaea]" />
+              <div className="w-full border-t border-dashed border-[#eaeaea]" />
+              <div className="w-full border-t border-dashed border-[#eaeaea]" />
+              <div className="w-full border-t border-dashed border-[#eaeaea]" />
+              <div className="w-full border-t border-dashed border-[#eaeaea]" />
+            </div>
+
+            {/* Chart bars */}
+            <div className="ml-12 h-full flex items-end justify-between gap-8">
+              {cashflowMonths.map((month, index) => (
+                <div
+                  key={index}
+                  className="flex-1 flex items-end justify-center gap-1 h-full"
+                >
+                  <div className="relative w-6 h-full flex items-end">
+                    <div
+                      className="w-full bg-[#7641d8] rounded-[3px_3px_0px_0px]"
+                      style={{ height: `${month.income}%` }}
+                    />
+                  </div>
+                  <div className="relative w-6 h-full flex items-end">
+                    <div
+                      className="w-full bg-[#21adbd] rounded-[3px_3px_0px_0px]"
+                      style={{ height: `${month.expense}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="ml-12 h-full flex items-end justify-between gap-8 border-b border-[#eaeaea] pb-8">
-            {cashflowMonths.map((month, index) => (
-              <div
-                key={index}
-                className="flex-1 flex items-end justify-center gap-1 h-full"
-              >
-                <div className="relative w-6 h-full flex items-end">
-                  <div
-                    className="w-full bg-[#7641d8] rounded-[3px_3px_0px_0px]"
-                    style={{ height: `${month.income}%` }}
-                  />
-                </div>
-                <div className="relative w-6 h-full flex items-end">
-                  <div
-                    className="w-full bg-[#21adbd] rounded-[3px_3px_0px_0px]"
-                    style={{ height: `${month.expense}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Bottom border line */}
+          <div className="ml-12 border-b border-[#eaeaea]" />
 
-          <div className="ml-12 flex justify-between mt-2">
+          {/* Month labels with padding above */}
+          <div className="ml-12 flex justify-between mt-3">
             {cashflowMonths.map((month, index) => (
               <span
                 key={index}
